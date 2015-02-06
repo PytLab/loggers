@@ -1,5 +1,5 @@
 # loggers
-A Python library for automatic logging in some websites with other functions
+##A Python library for automatic logging in some websites with other functions##
 ==================================================================
 Author: PytLab <shaozhengjiang@gmail.com>
 
@@ -83,11 +83,10 @@ e.g. 'C:\Python27\Lib\site-packages' on Windows
 '/usr/local/lib/python2.7/site-packages/' on Linux
 
 ===================================================================================
-Easy use:
-=========
-###################
-#  ecust_logger:  #
-###################
+##Easy use:##
+
+###  ecust_logger:  ###
+
 	I've provide a simple batch script 'run.bat' for you to run the 
 	'run_ecust.py' to log in ECUST Campus Network automatically.
 
@@ -111,9 +110,9 @@ Easy use:
 
     	5. Double tap 'stop.bat' to stop the script process.
 
-##################
-#  emuch_logger: #
-##################
+
+###  emuch_logger: ###
+
     This is a logger for automatic logging in emuch.net, 
     and provide credit getting function and file downloading function.
 
