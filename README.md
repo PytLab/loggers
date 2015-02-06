@@ -49,24 +49,24 @@ update version 0.1.0 :
 #####Quick Installation:(in cmd, bash, poweshell)#####
 To install, unpack the loggers archive and run
 	
-    ``python setup.py install``
+    python setup.py install
 To uninstall, run 
 	
-    ``python setup.py install --record log``
+    python setup.py install --record log
 a log file will be created,
 if you are on Linux, then run
 		
-    ``cat log | xagrs rm -rf ``
+    cat log | xagrs rm -rf
 
 #####Detailed Installation:#####
 Add this directory to the PYTHONPATH, 
 	
 e.g. in bash shell:
 	
-    ``export PYTHONPATH=$HOME/THIS_FOLDER_PATH:$PYTHONPATH``
+    export PYTHONPATH=$HOME/THIS_FOLDER_PATH:$PYTHONPATH
 or in cshell:
 	
-    ``setenv PYTHONPATH $HOME/THIS_FOLDER_PATH:$PYTHONPATH`` 
+    setenv PYTHONPATH $HOME/THIS_FOLDER_PATH:$PYTHONPATH
 or in python shell:
 	
     >>> import sys
@@ -135,6 +135,6 @@ automatically and  'run_downloader.py' to download file freely at midnight.
 2.then just double tap 'run_downloader.bat' or 'run_downloader.py' before 00:00
 
 3.the script will download for you automatically. Check files in the './emuch_download/'the next day,<br>
-  because some files may be crrupted(´-ι_-｀)
+    because some files may be crrupted(´-ι_-｀)
 	  
 =====================================================================================
