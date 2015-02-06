@@ -2,7 +2,7 @@
 A Python library for automatic logging in some website with other functions
 ==================================================================
 Author: PytLab <shaozhengjiang@gmail.com>
-Version: 0.2.0
+Version: 0.2.1
 ==================================================================
 Requirements:
 	You will need to ensure that you are running python 2.x 
@@ -36,7 +36,7 @@ update version 0.1.0 :
 **if you don't use it as a library, ignore this part**
 
 Quick Installation:(in cmd, bash, poweshell)
-	To install, unpack the loggers archive and run
+	To install, unpack the loggers archive and run<p>
 		``python setup.py install``
 	To uninstall, run 
 		``python setup.py install --record log``
