@@ -121,15 +121,15 @@ automatically and  'run_downloader.py' to download file freely at midnight.
 
 ####To get credit automatically:####
 1. Input your log infomation:
-    open loggers/emuch_logger/formdata.txt with any editor,
-    change the infomation according your own need, 
+    open loggers/emuch_logger/formdata.txt with any editor,<br>
+    change the infomation according your own need, <br>
     e.g. username, password ...
 
-2. It is recommended to put a shortcut of 'run_credit.bat' to your startup directory
-   e.g.C:\Users\**\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+2. It is recommended to put a shortcut of 'run_credit.bat' to your startup directory<br>
+   e.g.C:\Users\**\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup<br>
    to get your credit once your PC booting.
 
-3. If you want to run it manually, just double tap the 'run_credit.bat' 
+3. If you want to run it manually, just double tap the 'run_credit.bat' <br>
    or 'run_emuch.py'.
 
 4. All infomation are written in 'emuch.log'.
@@ -140,7 +140,7 @@ automatically and  'run_downloader.py' to download file freely at midnight.
 
 2.then just double tap 'run_downloader.bat' or 'run_downloader.py' before 00:00
 
-3.the script will download for you automatically. Check files in the './emuch_download/'the next day,
+3.the script will download for you automatically. Check files in the './emuch_download/'the next day,<br>
   because some files may be crrupted(´-ι_-｀)
 	  
 =====================================================================================
