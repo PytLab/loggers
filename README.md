@@ -7,6 +7,7 @@ Version: 0.2.1
 
 ==================================================================
 Requirements:
+
 	You will need to ensure that you are running python 2.x 
 	(2.7.x or greater) on your devices.
 	https://www.python.org/download/releases/2.7.6/
