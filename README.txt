@@ -2,7 +2,7 @@
     A Python library for automatic logging in and other functions.
 ==================================================================
 Author: PytLab <shaozhengjiang@gmail.com>
-Version: 0.2.0
+Version: 0.2.1
 ==================================================================
 Requirements:
 	You will need to ensure that you are running python 2.x 
