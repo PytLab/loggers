@@ -8,40 +8,46 @@ Version: 0.2.1
 ==================================================================
 Requirements:
 
-    You will need to ensure that you are running python 2.x 
-    (2.7.x or greater) on your devices.
-    [python2.7.6](https://www.python.org/download/releases/2.7.6/)
+  You will need to ensure that you are running python 2.x 
+  (2.7.x or greater) on your devices.[python2.7.6](https://www.python.org/download/releases/2.7.6/)
 	
 ==================================================================
 Update info:
 update version 0.2.1:
 
-	Continue to login when there is no internet connection or
-	no wlan account logged in.
+  Continue to login when there is no internet connection or
+  no wlan account logged in.
+  
 update version 0.2.0:
 
-    * Add new script to download files during 00:00 ~ 7:00
-    * without costing any credit!
+  * Add new script to download files during 00:00 ~ 7:00
+  * without costing any credit!
+  
 update version 0.1.5:
 
-    * fix bugs in display of credit number.
+  * fix bugs in display of credit number.
+  
 update version 0.1.4:
 
-    * check internet connection in script 'run_emuch.py'
-    * show credit number
+  * check internet connection in script 'run_emuch.py'
+  * show credit number
+  
 update version 0.1.3:
 
-    * Fix some bugs.
+  * Fix some bugs.
+  
 update version 0.1.2:
 
-    *remove the application of nonstandard lib -->"BeautifulSoup"
+  * remove the application of nonstandard lib -->"BeautifulSoup"
+ 
 update version 0.1.1:
 
-    * show user's coin number in log file.
+  * show user's coin number in log file.
+  
 update version 0.1.0 : 
 
-    * add EmuchLogger class to log in 'emuch.net' automatically
-    * add method of EmuchLogger to get credit automatically
+  * add EmuchLogger class to log in 'emuch.net' automatically
+  * add method of EmuchLogger to get credit automatically
 	
 ==================================================================
 **if you don't use it as a library, ignore this part**
