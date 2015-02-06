@@ -2,6 +2,7 @@
 A Python library for automatic logging in some websites with other functions
 ==================================================================
 Author: PytLab <shaozhengjiang@gmail.com>
+
 Version: 0.2.1
 
 ==================================================================
