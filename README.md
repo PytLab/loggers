@@ -50,32 +50,32 @@ update version 0.1.0 :
 ==================================================================
 **if you don't use it as a library, ignore this part**
 
-Quick Installation:(in cmd, bash, poweshell)
-    To install, unpack the loggers archive and run
+#####Quick Installation:(in cmd, bash, poweshell)#####
+To install, unpack the loggers archive and run
 	
-	``python setup.py install``
-    To uninstall, run 
+    ``python setup.py install``
+To uninstall, run 
 	
-	``python setup.py install --record log``
-    a log file will be created,
-    if you are on Linux, then run
+    ``python setup.py install --record log``
+a log file will be created,
+if you are on Linux, then run
 		
-	``cat log | xagrs rm -rf ``
+    ``cat log | xagrs rm -rf ``
 
-Detailed Installation:
+#####Detailed Installation:#####
 Add this directory to the PYTHONPATH, 
 	
-    e.g. in bash shell:
+e.g. in bash shell:
 	
-	``export PYTHONPATH=$HOME/THIS_FOLDER_PATH:$PYTHONPATH``
+    ``export PYTHONPATH=$HOME/THIS_FOLDER_PATH:$PYTHONPATH``
 		
 or in cshell:
 	
-	``setenv PYTHONPATH $HOME/THIS_FOLDER_PATH:$PYTHONPATH`` 
+    ``setenv PYTHONPATH $HOME/THIS_FOLDER_PATH:$PYTHONPATH`` 
 or in python shell:
 	
-	>>> import sys
-	>>> sys.path.append(THIS_FOLDER_PATH)
+    >>> import sys
+    >>> sys.path.append(THIS_FOLDER_PATH)
 
 You can alse place 'loggers' into your PYTHONPATH, 
 	
