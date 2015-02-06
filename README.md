@@ -20,18 +20,18 @@ update version 0.2.0:
 update version 0.1.5:
 	fix bugs in display of credit number.
 update version 0.1.4:
-	1.check internet connection in script 'run_emuch.py'
-	2.show credit number
+	check internet connection in script 'run_emuch.py'
+	show credit number
 update version 0.1.3:
 	Fix some bugs.
 update version 0.1.2:
 	remove the application of nonstandard lib -->
 		"BeautifulSoup"
 update version 0.1.1:
-	1.show user's coin number in log file.
+	show user's coin number in log file.
 update version 0.1.0 : 
-	1.add EmuchLogger class to log in 'emuch.net' automatically
-	2.add method of EmuchLogger to get credit automatically
+	add EmuchLogger class to log in 'emuch.net' automatically
+	add method of EmuchLogger to get credit automatically
 ==================================================================
 **if you don't use it as a library, ignore this part**
 
