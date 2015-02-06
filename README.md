@@ -3,11 +3,13 @@ A Python library for automatic logging in some website with other functions
 ==================================================================
 Author: PytLab <shaozhengjiang@gmail.com>
 Version: 0.2.1
+
 ==================================================================
 Requirements:
 	You will need to ensure that you are running python 2.x 
 	(2.7.x or greater) on your devices.
 	https://www.python.org/download/releases/2.7.6/
+	
 ==================================================================
 Update info:
 
@@ -32,6 +34,7 @@ update version 0.1.1:
 update version 0.1.0 : 
 	add EmuchLogger class to log in 'emuch.net' automatically
 	add method of EmuchLogger to get credit automatically
+	
 ==================================================================
 **if you don't use it as a library, ignore this part**
 
@@ -115,4 +118,5 @@ Easy use:
 	2.then just double tap 'run_downloader.bat' or 'run_downloader.py' before 00:00
 	3.the script will download for you automatically. Check files in the './emuch_download/'the next day,
 	  because some files may be crrupted(´-ι_-｀)
+	  
 =====================================================================================
