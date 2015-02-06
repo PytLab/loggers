@@ -14,12 +14,10 @@ Requirements:
 	
 ==================================================================
 Update info:
-
 update version 0.2.1:
 
 	Continue to login when there is no internet connection or
 	no wlan account logged in.
-	
 update version 0.2.0:
 
 	Add new script to download files during 00:00 ~ 7:00
@@ -40,7 +38,6 @@ update version 0.1.3:
 update version 0.1.2:
 
 	remove the application of nonstandard lib -->"BeautifulSoup"
-		
 update version 0.1.1:
 
 	show user's coin number in log file.
@@ -54,36 +51,36 @@ update version 0.1.0 :
 **if you don't use it as a library, ignore this part**
 
 Quick Installation:(in cmd, bash, poweshell)
-	To install, unpack the loggers archive and run
+    To install, unpack the loggers archive and run
 	
-		``python setup.py install``
-	To uninstall, run 
+	``python setup.py install``
+    To uninstall, run 
 	
-		``python setup.py install --record log``
-		a log file will be created,
-		if you are on Linux, then run
+	``python setup.py install --record log``
+    a log file will be created,
+    if you are on Linux, then run
 		
-		``cat log | xagrs rm -rf ``
+	``cat log | xagrs rm -rf ``
 
 Detailed Installation:
-	Add this directory to the PYTHONPATH, 
+Add this directory to the PYTHONPATH, 
 	
-	e.g. in bash shell:
+    e.g. in bash shell:
 	
-		``export PYTHONPATH=$HOME/THIS_FOLDER_PATH:$PYTHONPATH``
+	``export PYTHONPATH=$HOME/THIS_FOLDER_PATH:$PYTHONPATH``
 		
-	or in cshell:
+or in cshell:
 	
-		``setenv PYTHONPATH $HOME/THIS_FOLDER_PATH:$PYTHONPATH`` 
-	or in python shell:
+	``setenv PYTHONPATH $HOME/THIS_FOLDER_PATH:$PYTHONPATH`` 
+or in python shell:
 	
-		>>> import sys
-		>>> sys.path.append(THIS_FOLDER_PATH)
+	>>> import sys
+	>>> sys.path.append(THIS_FOLDER_PATH)
 
-	You can alse place 'loggers' into your PYTHONPATH, 
+You can alse place 'loggers' into your PYTHONPATH, 
 	
-	e.g. 'C:\Python27\Lib\site-packages' on Windows
-		 '/usr/local/lib/python2.7/site-packages/' on Linux 
+e.g. 'C:\Python27\Lib\site-packages' on Windows
+'/usr/local/lib/python2.7/site-packages/' on Linux 
 ===================================================================================
 Easy use:
 =========
