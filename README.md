@@ -87,57 +87,60 @@ e.g. 'C:\Python27\Lib\site-packages' on Windows
 
 ###  ecust_logger:  ###
 
-	I've provide a simple batch script 'run.bat' for you to run the 
-	'run_ecust.py' to log in ECUST Campus Network automatically.
+I've provide a simple batch script 'run.bat' for you to run the 
+'run_ecust.py' to log in ECUST Campus Network automatically.
 
-	Note: this script provide only automatic wired connection to 
-	Campus Network with your 4M accounts.
+Note: this script provide only automatic wired connection to 
+Campus Network with your 4M accounts.
 
-	1. Input your log infomation:
-		open loggers/ecust_logger/formdata.txt with any editor,
-		change the infomation according your own need, 
-		e.g. username, password ...
+1. Input your log infomation:
+   open loggers/ecust_logger/formdata.txt with any editor,
+   change the infomation according your own need, 
+   e.g. username, password ...
 
-	2. If you want to run this script with your computer booting,
-  	   add the shortcut of 'run.bat' to your startup directory, for example
-       (C:\Users\**\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup)
-       Then the script will start when you boot your system.
+2. If you want to run this script with your computer booting,
+   add the shortcut of 'run.bat' to your startup directory, for example
+   (C:\Users\**\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup)
+   Then the script will start when you boot your system.
 
-    	3. If you want to run it manually, just double tap the 'run.bat' 
-       	or 'run_ecust.py'.
+3. If you want to run it manually, just double tap the 'run.bat' 
+   or 'run_ecust.py'.
 
-    	4. All infomation are written in 'ecust.log', check it when the script running.
+4. All infomation are written in 'ecust.log', check it when the script running.
 
-    	5. Double tap 'stop.bat' to stop the script process.
+5. Double tap 'stop.bat' to stop the script process.
 
 
 ###  emuch_logger: ###
 
-    This is a logger for automatic logging in emuch.net, 
-    and provide credit getting function and file downloading function.
+This is a logger for automatic logging in emuch.net, 
+and provide credit getting function and file downloading function.
 
-    I've provide a simple script 'run_credit.py' to log in and get today's credit
-    automatically and  'run_downloader.py' to download file freely at midnight.
+I've provide a simple script 'run_credit.py' to log in and get today's credit
+automatically and  'run_downloader.py' to download file freely at midnight.
 
-    *To get credit automatically:
-	1. Input your log infomation:
-		open loggers/emuch_logger/formdata.txt with any editor,
-		change the infomation according your own need, 
-		e.g. username, password ...
+####To get credit automatically:####
+1. Input your log infomation:
+    open loggers/emuch_logger/formdata.txt with any editor,
+    change the infomation according your own need, 
+    e.g. username, password ...
 
-	2. It is recommended to put a shortcut of 'run_credit.bat' to your startup directory
-	   e.g.C:\Users\**\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
-	   to get your credit once your PC booting.
+2. It is recommended to put a shortcut of 'run_credit.bat' to your startup directory
+   e.g.C:\Users\**\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+   to get your credit once your PC booting.
 
-	3. If you want to run it manually, just double tap the 'run_credit.bat' 
-       	   or 'run_emuch.py'.
+3. If you want to run it manually, just double tap the 'run_credit.bat' 
+   or 'run_emuch.py'.
 
-    	4. All infomation are written in 'emuch.log'.
+4. All infomation are written in 'emuch.log'.
 
-    *To get download file for free at midnight:
-	1.put urls of downoad pages into 'download_list.txt'
-	2.then just double tap 'run_downloader.bat' or 'run_downloader.py' before 00:00
-	3.the script will download for you automatically. Check files in the './emuch_download/'the next day,
-	  because some files may be crrupted(´-ι_-｀)
+####To get download file for free at midnight:####
+
+1.put urls of downoad pages into 'download_list.txt'
+
+2.then just double tap 'run_downloader.bat' or 'run_downloader.py' before 00:00
+
+3.the script will download for you automatically. Check files in the './emuch_download/'the next day,
+  because some files may be crrupted(´-ι_-｀)
 	  
 =====================================================================================
