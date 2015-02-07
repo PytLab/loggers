@@ -13,6 +13,7 @@ Requirements:
 	
 ==================================================================
 Update info:
+
 update version 0.2.1:
 
   * Continue to login when there is no internet connection or no wlan account logged in.
