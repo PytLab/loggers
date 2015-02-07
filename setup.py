@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-"""Catalysis Micro-kinetic Analysis Package (CatMAP)"""
 
 
 from distutils.core import setup
