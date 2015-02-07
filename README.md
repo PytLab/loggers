@@ -86,7 +86,7 @@ e.g. 'C:\Python27\Lib\site-packages' on Windows
 
 ###  ecust_logger:  ###
 
-I've provide a simple batch script 'run.bat' for you to run the 
+I've provided a simple batch script 'run.bat' for you to run the 
 'run_ecust.py' to log in ECUST Campus Network automatically.
 
 Note: this script provide only automatic wired connection to 
@@ -115,7 +115,7 @@ Campus Network with your 4M accounts.
 This is a logger for automatic logging in emuch.net, 
 and provide credit getting function and file downloading function.
 
-I've provide a simple script 'run_credit.py' to log in and get today's credit
+I've provided a simple script 'run_credit.py' to log in and get today's credit
 automatically and  'run_downloader.py' to download file freely at midnight.
 
 ####To get credit automatically:####
