@@ -135,11 +135,13 @@ automatically and  'run_downloader.py' to download file freely at midnight.
 
 ####To get download file for free at midnight:####
 
- 1. put urls of downoad pages into 'download_list.txt'
+ 1. Put urls of downoad pages into 'download_list.txt'
 
- 2. then just double tap 'run_downloader.bat' or 'run_downloader.py' before 00:00
+ 2. Then just double tap 'run_downloader.bat' or 'run_downloader.py' before 00:00
 
- 3. the script will download for you automatically. Check files in the './emuch_download/'the next day,<br>
+ 3. The script will download for you automatically. Check files in the './emuch_download/'the next day,<br>
     because some files may be crrupted(´-ι_-｀)
+
+ 4. Download informations are displayed in command windows, log informations are recorded in 'emuch.log'.
 	  
 =====================================================================================
