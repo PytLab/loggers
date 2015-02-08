@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+'''A Python library for automatic logging in some websites with other functions'''
 
 from distutils.core import setup
 from loggers import __version__ as version
