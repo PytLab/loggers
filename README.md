@@ -1,18 +1,21 @@
 # loggers
 ##A Python library for automatic logging in some websites with other functions##
 ==================================================================
-Author: PytLab <shaozhengjiang@gmail.com>
+####Author: ####
+  PytLab <shaozhengjiang@gmail.com>
 
-Version: 0.2.1
+####Version: ####
+  0.2.1
 
 ==================================================================
-Requirements:
+####Requirements:####
 
   You will need to ensure that you are running python 2.x 
   (2.7.x or greater) on your devices.[python2.7.6](https://www.python.org/download/releases/2.7.6/)
 	
 ==================================================================
-Update info:
+####Update info:####
+
 update version 0.2.1:
 
   * Continue to login when there is no internet connection or no wlan account logged in.
