@@ -12,7 +12,7 @@ def emuch(emuch_logger):
 		return 'no_internet'
 
 	title_1 = emuch_logger.get_page_title(url)
-	title_2 = emuch_logger.get_page_title('http://www.baidu.com/')
+	title_2 = emuch_logger.get_page_title('http://www.weibo.com/')
 	if title_1 == title_2:
 		return 'need_login'
 	else:
