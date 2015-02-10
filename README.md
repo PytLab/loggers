@@ -5,7 +5,7 @@
   PytLab <shaozhengjiang@gmail.com>
 
 ####Version: ####
-  0.2.1
+  0.2.2
 
 ==================================================================
 ####Requirements:####
@@ -15,6 +15,10 @@
 	
 ==================================================================
 ####Update info:####
+
+update version 0.2.2:
+
+  * fix some bugs in checking internet connection.
 
 update version 0.2.1:
 
