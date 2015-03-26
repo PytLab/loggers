@@ -25,18 +25,21 @@ def emuch(emuch_logger):
 		return 'need_login'
 	else:
 		cookies = emuch_logger.log_in()
-		#get credit
-		response = emuch_logger.get_credit()
-		#check if there is a formhash tag
-		if 'have_got' in response:
-			print 'You\'ve got today\'s coin~'
-			print 'Current credit number : %s' % str(response[1])
-			return 
+		if cookies:
+		    #get credit
+		    response = emuch_logger.get_credit()
+		    #check if there is a formhash tag
+		    if 'have_got' in response:
+			    print 'You\'ve got today\'s coin~'
+			    print 'Current credit number : %s' % str(response[1])
+			    return 
+		    else:
+			    credit_num = emuch_logger.get_credit_number(response)
+			    print "Today's credit -> get!"
+			    print 'Current credit number : %s' % str(credit_num)
+			    return
 		else:
-			credit_num = emuch_logger.get_credit_number(response)
-			print "Today's credit -> get!"
-			print 'Current credit number : %s' % str(credit_num)
-			return
+			print "Failed to set cookies."
 
 signal = emuch(emuch_logger)
 #if signal == 'no_internet':

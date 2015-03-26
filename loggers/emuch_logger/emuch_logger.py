@@ -94,13 +94,18 @@ class EmuchLogger(Logger):
 					r'(\xb5\xc8\xd3\xda\xb6\xe0\xc9\xd9?)'
 
         while not (num1 and num2 and operation):
+            print "Sending form data to log in...\n"
             response = self.post_with_cookie()[0]
+            print "Abstracting verify information..."
             match_obj = re.search(qustion_regex, response)
+            if match_obj:
+                print "OK."
 			#get question parts
             try:
                 num1, num2, operation = match_obj.group(2), match_obj.group(4),\
 												match_obj.group(3)
 				#return num1, num2, operation
+                print "Question is %s %s %s\n" % (num1, operation, num2)
             except:
 				#print "failed to get question"
 				#time.sleep(6)
@@ -109,16 +114,23 @@ class EmuchLogger(Logger):
 		#further log in
 		#calculate verify question
 		#division
+        print "Answering the question..."
         if operation == '\xb3\xfd\xd2\xd4':
             answer = str(int(num1) / int(num2))
 		#multiplication
         if operation == '\xb3\xcb\xd2\xd4':
             answer = str(int(num1) * int(num2))
 
+        print "OK. The answer is %s\n" % (answer)
+
 		#get formhash value
+        print "Get formhash value..."
         formhash = self.get_hash_code('formhash',response)[1]
+        print "OK. formhash = %s\n" % (formhash)
 		#get post_sec_hash value
+        print "Get post_sec_hash value..."
         post_sec_hash = self.get_hash_code('post_sec_hash',response)[1]
+        print "OK. post_sec_hash = %s\n" % (post_sec_hash)
 
 		#update form_data_dict
         self.add_form_data({'formhash':formhash,
@@ -127,43 +139,51 @@ class EmuchLogger(Logger):
 							})
 
 		#login_response = self.post_with_cookie()
+        print "Sending form data again..."
         cookies_tup = self.post_with_cookie()[1]
+        if cookies_tup:
+            print "OK.\n"
+        else:
+            print "Failed to set cookie!"
 
         return cookies_tup
 
     def get_credit(self):
-        """get today's credit, 
-		if get, return page content, else return 'have_got' and credit_num"""
+        """
+        get today's credit, 
+		if get, return page content, else return 'have_got' and credit_num
+        """
 		#get formhash value
+        print "Getting credit...\n"
         req_1 = urllib2.Request(self.credit_url, 
 								urllib.urlencode({'getmode':'1'}))
         response_1 = urllib2.urlopen(req_1).read()
-#		credit_soup = BeautifulSoup(response_1)
-#		formhash_tag = credit_soup.find('input',attrs = {'name':'formhash'})
-#		if formhash_tag:
-#			formhash = formhash_tag['value']
 		
         if self.get_hash_code('formhash', response_1):
             formhash = self.get_hash_code('formhash', response_1)[1]
-			#formhash = self.get_hash_code_BSoup('formhash', credit_url)
             credit_form_data = {'getmode':'1', 'creditsubmit':'领取红包'}
             credit_form_data['formhash'] = formhash
             setattr(self, 'credit_form_data', credit_form_data)
 
 			#post values to get credit
+            print "Sending form data to get credit..."
             data = urllib.urlencode(credit_form_data)
             req_2 = urllib2.Request(self.credit_url, data)
             response_2 = urllib2.urlopen(req_2).read()
             if response_2:
+                print "Abstracting credit number..."
                 credit_num = self.get_credit_number(response_2)
                 self.log(event='get_credit_succeed', credit_num=credit_num)
+                print "OK.\n"
 
             return response_2
         else:
 			#print 'got!'
+            print "Abstracting credit number..."
             credit_num = self.get_credit_number(
 							self.send_post(self.credit_url,self.form_data_dict))
             self.log(event='get_credit_fail', credit_num=credit_num)
+            print "OK.\n"
             return 'have_got', credit_num
 
     @staticmethod
