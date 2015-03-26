@@ -12,8 +12,16 @@ def emuch(emuch_logger):
 		return 'no_internet'
 
 	title_1 = emuch_logger.get_page_title(url)
-	title_2 = emuch_logger.get_page_title('http://www.baidu.com/')
-	if title_1 == title_2:
+	try:
+	    title_2 = emuch_logger.get_page_title('http://www.weibo.com/')
+	except:
+		title_2 = None
+	try:
+	    title_3 = emuch_logger.get_page_title('http://www.baidu.com/')
+	except:
+		title_3 = None
+		
+	if title_1 == title_2 or title_1 == title_3:
 		return 'need_login'
 	else:
 		cookies = emuch_logger.log_in()
