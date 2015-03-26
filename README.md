@@ -5,7 +5,7 @@
   PytLab <shaozhengjiang@gmail.com>
 
 ####Version: ####
-  0.2.2
+  0.2.3
 
 ==================================================================
 ####Requirements:####
@@ -15,6 +15,10 @@
 	
 ==================================================================
 ####Update info:####
+
+update version 0.2.3:
+
+  * Show feedback information on command window.
 
 update version 0.2.2:
 
@@ -147,7 +151,7 @@ automatically and  'run_downloader.py' to download file freely at midnight.
  2. Then just double tap 'run_downloader.bat' or 'run_downloader.py' before 00:00
 
  3. The script will download for you automatically. Check files in the './emuch_download/'the next day,<br>
-    because some files may be crrupted(´-ι_-｀)
+    because some files may be corrupted(´-ι_-｀)
 
  4. Download informations are displayed in command windows, log informations are recorded in 'emuch.log'.
 	  
