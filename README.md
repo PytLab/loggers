@@ -136,7 +136,7 @@ automatically and  'run_downloader.py' to download file freely at midnight.
     e.g. username, password ...
 
  2. It is recommended to put a shortcut of 'run_credit.bat' to your startup directory<br>
-   e.g.C:\Users\**\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup<br>
+   e.g.C:\Users\Username\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup<br>
    to get your credit once your PC booting.
 
  3. If you want to run it manually, just double tap the 'run_credit.bat' <br>
