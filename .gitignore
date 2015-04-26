@@ -20,6 +20,10 @@ $RECYCLE.BIN/
 # Byte compiled python modules.
 *.pyc
 
+#log file and input file in Loggers
+*.txt
+*.log
+
 # =========================
 # Operating System Files
 # =========================
@@ -44,3 +48,4 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+loggers/emuch_logger/formdata.txt
