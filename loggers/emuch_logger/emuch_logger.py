@@ -96,7 +96,7 @@ class EmuchLogger(Logger):
         while not (num1 and num2 and operation):
             print "Sending form data to log in...\n"
             response = self.post_with_cookie()[0]
-            print "Abstracting verification information..."
+            print "Abstracting verify information..."
             match_obj = re.search(qustion_regex, response)
             if match_obj:
                 print "OK."
