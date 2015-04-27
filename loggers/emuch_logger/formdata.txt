@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-username = pytlab
-password = ******
-=======
 username = vanillasmile
-password = ××××××
->>>>>>> e5e4506a71e8c924651c8ef2edb6452104fd5fb4
+password = 9817889176
 cookietime = 31536000
-loginsubmit = »áÔ±µÇÂ¼
+loginsubmit = ��Ա��¼
