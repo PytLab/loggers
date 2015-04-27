@@ -1,4 +1,4 @@
 username = vanillasmile
-password = 9817889176
+password = ******
 cookietime = 31536000
-loginsubmit = ��Ա��¼
+loginsubmit = »áÔ±µÇÂ¼
