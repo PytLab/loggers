@@ -4,6 +4,7 @@ from logger_base import *
 import time
 #from BeautifulSoup import BeautifulSoup
 
+
 class EmuchLogger(Logger):
     def __init__(self, url):
         Logger.__init__(self, url)
@@ -12,7 +13,7 @@ class EmuchLogger(Logger):
 								  	'update to \'${form_name} = ${new_value}\''),
 			'get_credit_succeed': 'today\'s credit get√, current coin number:${credit_num}',
 			'get_credit_fail'   : ('failed (´-ι_-｀) , have got today\'s coin,'
-									'current coin number:${credit_num}'),
+								   'current coin number:${credit_num}'),
 			'match_file_fail'   : 'No file link in \'${url}\'',
 			'suffix_unmatch'    : ('unmatched suffix : \'${suffix_1}\' and \'${suffix_2}\''
 									'	,force to change to \'${suffix_2}\''),
@@ -38,21 +39,21 @@ class EmuchLogger(Logger):
 
     def post_with_cookie(self):
         "post data with cookie setting, return page string and cookie tuple"
-		#get formhash
+        #get formhash
         url_login = self.url_login
 #		formhash = self.get_hash_code_BSoup('formhash', url_login)
         response = urllib2.urlopen(url_login).read()
         formhash = self.get_hash_code('formhash', response)
-		#update form_data_dict
-        self.add_form_data({'formhash':formhash})
-		#set cookie
+        #update form_data_dict
+        self.add_form_data({'formhash': formhash})
+        #set cookie
         cj = cookielib.CookieJar()
         form_data = self.form_data_dict
         try:
-            opener=urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
+            opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
             urllib2.install_opener(opener)
-            req=urllib2.Request(url_login,urllib.urlencode(form_data))
-            u=urllib2.urlopen(req)
+            req = urllib2.Request(url_login, urllib.urlencode(form_data))
+            u = urllib2.urlopen(req)
             cookie_list = []
             for index, cookie in enumerate(cj):
 #				print '['+index+']:'+cookie
@@ -69,8 +70,8 @@ class EmuchLogger(Logger):
         hash_regex = r'(<input.+name=")(' + tag_name + r')(" value=")([\d\w]+)(">)'
         m = re.search(hash_regex, response)
         if m:
-			#retrun tag_name, hash_code
-            return m.group(2), m.group(4) 
+            #retrun tag_name, hash_code
+            return m.group(2), m.group(4)
         else:
             return
 
@@ -87,11 +88,11 @@ class EmuchLogger(Logger):
     def log_in(self):
         """
         Method to pass values by POST 2 times to log in emuch.net,
-		return cookie tuple.
-		"""
+        return cookie tuple.
+        """
         num1, num2, operation = 0, 0, ''
-        qustion_regex = r'(\xce\xca\xcc\xe2\xa3\xba)(\d+)(.+)(\d+)'+\
-					r'(\xb5\xc8\xd3\xda\xb6\xe0\xc9\xd9?)'
+        qustion_regex = r'(\xce\xca\xcc\xe2\xa3\xba)(\d+)(.+)(\d+)' +\
+            r'(\xb5\xc8\xd3\xda\xb6\xe0\xc9\xd9?)'
 
         while not (num1 and num2 and operation):
             print "Sending form data to log in...\n"
@@ -100,45 +101,44 @@ class EmuchLogger(Logger):
             match_obj = re.search(qustion_regex, response)
             if match_obj:
                 print "OK."
-			#get question parts
+            #get question parts
             try:
                 num1, num2, operation = match_obj.group(2), match_obj.group(4),\
-												match_obj.group(3)
-				#return num1, num2, operation
+                    match_obj.group(3)
+                #return num1, num2, operation
                 print "Question is %s %s %s\n" % (num1, operation, num2)
             except:
-				#print "failed to get question"
-				#time.sleep(6)
+                #print "failed to get question"
+                #time.sleep(6)
                 pass
 
-		#further log in
-		#calculate verify question
-		#division
+        #further log in
+        #calculate verify question
+        #division
         print "Answering the question..."
         if operation == '\xb3\xfd\xd2\xd4':
             answer = str(int(num1) / int(num2))
-		#multiplication
+        #multiplication
         if operation == '\xb3\xcb\xd2\xd4':
             answer = str(int(num1) * int(num2))
 
         print "OK. The answer is %s\n" % (answer)
 
-		#get formhash value
+        #get formhash value
         print "Get formhash value..."
-        formhash = self.get_hash_code('formhash',response)[1]
+        formhash = self.get_hash_code('formhash', response)[1]
         print "OK. formhash = %s\n" % (formhash)
-		#get post_sec_hash value
+        #get post_sec_hash value
         print "Get post_sec_hash value..."
-        post_sec_hash = self.get_hash_code('post_sec_hash',response)[1]
+        post_sec_hash = self.get_hash_code('post_sec_hash', response)[1]
         print "OK. post_sec_hash = %s\n" % (post_sec_hash)
 
-		#update form_data_dict
-        self.add_form_data({'formhash':formhash,
-							'post_sec_code':answer,
-							'post_sec_hash':post_sec_hash
-							})
+        #update form_data_dict
+        self.add_form_data({'formhash': formhash,
+                            'post_sec_code': answer,
+                            'post_sec_hash': post_sec_hash})
 
-		#login_response = self.post_with_cookie()
+        #login_response = self.post_with_cookie()
         print "Sending form data again..."
         cookies_tup = self.post_with_cookie()[1]
         if cookies_tup:
@@ -150,22 +150,22 @@ class EmuchLogger(Logger):
 
     def get_credit(self):
         """
-        get today's credit, 
-		if get, return page content, else return 'have_got' and credit_num
+        get today's credit,
+        if get, return page content, else return 'have_got' and credit_num
         """
-		#get formhash value
+        #get formhash value
         print "Getting credit...\n"
-        req_1 = urllib2.Request(self.credit_url, 
-								urllib.urlencode({'getmode':'1'}))
+        req_1 = urllib2.Request(self.credit_url,
+                                urllib.urlencode({'getmode': '1'}))
         response_1 = urllib2.urlopen(req_1).read()
-		
+
         if self.get_hash_code('formhash', response_1):
             formhash = self.get_hash_code('formhash', response_1)[1]
-            credit_form_data = {'getmode':'1', 'creditsubmit':'领取红包'}
+            credit_form_data = {'getmode': '1', 'creditsubmit': '领取红包'}
             credit_form_data['formhash'] = formhash
             setattr(self, 'credit_form_data', credit_form_data)
 
-			#post values to get credit
+            #post values to get credit
             print "Sending form data to get credit..."
             data = urllib.urlencode(credit_form_data)
             req_2 = urllib2.Request(self.credit_url, data)
@@ -178,10 +178,9 @@ class EmuchLogger(Logger):
 
             return response_2
         else:
-			#print 'got!'
             print "Abstracting credit number..."
             credit_num = self.get_credit_number(
-							self.send_post(self.credit_url,self.form_data_dict))
+                self.send_post(self.credit_url, self.form_data_dict))
             self.log(event='get_credit_fail', credit_num=credit_num)
             print "OK.\n"
             return 'have_got', credit_num
@@ -220,16 +219,15 @@ class EmuchLogger(Logger):
         m = re.search(regex, resp)
         if m:
             second_url = 'http://emuch.net/bbs/' + m.group(2)
-			#down_page = urllib2.urlopen(second_url).read()
             return second_url
         else:
-            return 
+            return
 
     def extract_file_url(self, url):
         "match file urls in page got from first_url, return a list"
         response = urllib2.urlopen(url).read()
-        regex = r'<a href="http://.+\..+" style="color:green;font-size:'+\
-				r'12px;font-weight:bold;" target="_blank">'
+        regex = r'<a href="http://.+\..+" style="color:green;font-size:' +\
+            r'12px;font-weight:bold;" target="_blank">'
         m = re.findall(regex, response)
         if m:
             return [i[9:-71] for i in m]
@@ -241,7 +239,7 @@ class EmuchLogger(Logger):
     def download_from_1st_url(self, first_url):
         second_url = self.get_2nd_url(first_url)
         file_url_list = self.extract_file_url(second_url)
-		#parse every url and down load
+        #parse every url and down load
         for file_url in file_url_list:
             filename = self.parse_file_url(file_url)['filename']
             if not os.path.exists('./emuch_download/'):
