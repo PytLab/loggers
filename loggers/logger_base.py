@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-import urllib, urllib2, cookielib
-import subprocess
+import urllib
+import urllib2
+import cookielib
 import time
 import os
 from string import Template
