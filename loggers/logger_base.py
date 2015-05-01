@@ -95,8 +95,13 @@ class Logger(object):
         data = urllib.urlencode(form_data_dict)
         #get request object
         req = urllib2.Request(url, data, headers)
+
+        #set cookie and create a general opener instead urlopen()
+        cookie = cookielib.CookieJar()  # CookieJar object to store cookie
+        handler = urllib2.HTTPCookieProcessor(cookie)  # create cookie processor
+        opener = urllib2.build_opener(handler)  # a general opener
         #return response page content
-        response = urllib2.urlopen(req, timeout=10)
+        response = opener.open(req, timeout=10)
         page = response.read()
 
         return page
