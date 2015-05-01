@@ -1,8 +1,11 @@
-from ecust_logger import *
+import sys
+sys.path.append('D:\Dropbox\Code\Python\loggers')
+from loggers.ecust_logger import *
+
 url = 'http://172.20.13.100/cgi-bin/srun_portal'
 ecust_logger = EcustCampusLogger(url)
 if os.path.exists('./ecust.log'):
-	os.remove('./ecust.log')
+    os.remove('./ecust.log')
 #while True:
 #	ecust_logger.login_campus()
 #	time.sleep(15)

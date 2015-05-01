@@ -1,4 +1,6 @@
-from emuch_logger import *
+import sys
+sys.path.append('D:\Dropbox\Code\Python\loggers')
+from loggers.emuch_logger import *
 import time
 
 url = 'http://emuch.net/bbs/logging.php?action=login'

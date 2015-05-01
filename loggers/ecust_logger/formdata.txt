@@ -1,4 +1,0 @@
-username = 000001
-password = ******
-opt = 2
-ac_id = 14
