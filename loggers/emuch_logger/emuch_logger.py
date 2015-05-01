@@ -10,7 +10,7 @@ class EmuchLogger(Logger):
         Logger.__init__(self, url)
         self._log_str = {
 			'update_form_data'  : ('there has been \'${form_name} = ${old_value}\','
-								  	'update to \'${form_name} = ${new_value}\''),
+								   'update to \'${form_name} = ${new_value}\''),
 			'get_credit_succeed': 'today\'s credit get√, current coin number:${credit_num}',
 			'get_credit_fail'   : ('failed (´-ι_-｀) , have got today\'s coin,'
 								   'current coin number:${credit_num}'),
@@ -67,7 +67,8 @@ class EmuchLogger(Logger):
 
     @staticmethod
     def get_hash_code(tag_name, response):
-        hash_regex = r'(<input.+name=")(' + tag_name + r')(" value=")([\d\w]+)(">)'
+        hash_regex = r'(<input.+name=")(' + \
+            tag_name + r')(" value=")([\d\w\s]+)("\s*>)'
         m = re.search(hash_regex, response)
         if m:
             #retrun tag_name, hash_code
