@@ -11,11 +11,12 @@ class Logger(object):
     """
     This is a parent class to be inherited by other logger class.
     """
-    def __init__(self, url):
-    	self.form_data_dict = {}
-    	self.url_login = url 
-    	self.add_form_data(self.load_form_data())
-    	self._log_format = '%-70s%-20s\n'
+    def __init__(self, url, need_data_file=True):
+        self.form_data_dict = {}
+        self.url_login = url
+        if need_data_file:
+            self.add_form_data(self.load_form_data())
+        self._log_format = '%-70s%-20s\n'
     	self._log_str = {
             'match_file_fail' : 'No file link in \'${url}\'',
             'suffix_unmatch:' : ('Warning: unmatched suffix : \'${suffix_1}\' and '
@@ -84,11 +85,21 @@ class Logger(object):
     @staticmethod
     def send_post(url, form_data_dict):
         "pass value by POST method, return response string"
-        #url_login = self.url_login
-        #form_data = self.form_data_dict
-        req = urllib2.Request(url, urllib.urlencode(form_data_dict))
+        #set headers
+        user_agent = \
+            'Mozilla/5.0 (Linux; Android 4.2.2; GT-I9505 Build/JDQ39) ' +\
+            'AppleWebKit/537.36 (KHTML, like Gecko) ' +\
+            'Chrome/31.0.1650.59 Mobile Safari/537.36'
+        headers = {'User-Agent': user_agent}
+        #convert form dict data
+        data = urllib.urlencode(form_data_dict)
+        #get request object
+        req = urllib2.Request(url, data, headers)
         #return response page content
-        return urllib2.urlopen(req).read()
+        response = urllib2.urlopen(req, timeout=10)
+        page = response.read()
+
+        return page
 
     def login_check(self):
         result = self.do_login()
