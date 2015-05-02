@@ -49,10 +49,39 @@ class DoiLogger(Logger):
 
         return pdf_url
 
+    #Springer
     @staticmethod
-    def download_pdf(pdf_url, target_path, save_name):
+    def get_Springer_pdf_url(page_content):
+        pdf_url_head = 'http://link.springer.com'
+        #create BS object
+        soup = BeautifulSoup(page_content)
+        #get pdf link
+        url_list = soup.find_all(
+            'a', id='action-bar-download-article-pdf-link')
+        partial_pdf_url = url_list[0].attrs['href']
+        quasi_url = pdf_url_head + partial_pdf_url
+
+        return quasi_url  # please use download_pdf_by_urllib()
+
+    @staticmethod
+    def download_pdf_by_requests(pdf_url, target_path, save_name):
         req = requests.get(pdf_url)
         content = req.content
+
+        fullname = target_path + save_name
+        with open(fullname, 'wb') as f:
+            f.write(content)
+
+        return
+
+    @staticmethod
+    def download_pdf_by_urllib(pdf_url, target_path, save_name):
+        '''
+        Use this method to download pdf from quasi_url
+        returned from get_Springer_pdf_url.
+        '''
+        response = urllib2.urlopen(pdf_url, timeout=100)
+        content = response.read()
 
         fullname = target_path + save_name
         with open(fullname, 'wb') as f:
