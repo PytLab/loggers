@@ -27,6 +27,8 @@ class DoiLogger(Logger):
         soup = BeautifulSoup(page_content)
         #get pdf link
         url_list = soup.find_all(id='pdfLink')
+        if not url_list:
+            return
         pdf_url = url_list[0].attrs['href']
 
         return pdf_url
@@ -40,10 +42,12 @@ class DoiLogger(Logger):
         #get pdf link
         href_pattern = re.compile(str(doi_number))
         url_list = soup.find_all('a', text='PDF', href=href_pattern)
+        if not url_list:
+            return
         partial_pdf_url = url_list[0].attrs['href']
         pdf_url = home_url + partial_pdf_url
 
-        return pdf_url
+        return pdf_url, 'ACS.pdf'
 
     #Wiley
     @staticmethod
@@ -55,9 +59,11 @@ class DoiLogger(Logger):
         soup = BeautifulSoup(page_content)
         #get pdf link
         url_list = soup.find_all('iframe', id='pdfDocument')
+        if not url_list:
+            return
         pdf_url = url_list[0].attrs['src']
 
-        return pdf_url
+        return pdf_url, 'Wiley.pdf'
 
     #Springer
     @staticmethod
@@ -68,10 +74,12 @@ class DoiLogger(Logger):
         #get pdf link
         url_list = soup.find_all(
             'a', id='action-bar-download-article-pdf-link')
+        if not url_list:
+            return
         partial_pdf_url = url_list[0].attrs['href']
         quasi_url = pdf_url_head + partial_pdf_url
 
-        return quasi_url  # please use download_pdf_by_urllib()
+        return quasi_url, 'Springer.pdf'  # please use download_pdf_by_urllib()
 
     #Nature
     @staticmethod
@@ -81,10 +89,12 @@ class DoiLogger(Logger):
         soup = BeautifulSoup(page_content)
         #get pdf link
         url_list = soup.find_all('a', id='download-pdf')
+        if not url_list:
+            return
         partial_pdf_url = url_list[0].attrs['href']
         pdf_url = home_url + partial_pdf_url
 
-        return pdf_url
+        return pdf_url, 'Nature.pdf'
 
     #RSC
     @staticmethod
@@ -95,10 +105,12 @@ class DoiLogger(Logger):
         #get pdf link
         url_list = soup.find_all(
             'a', class_='gray_bg_normal_txt', title='PDF')
+        if not url_list:
+            return
         partial_pdf_url = url_list[0].attrs['href']
         pdf_url = home_url + partial_pdf_url
 
-        return pdf_url
+        return pdf_url, 'RSC.pdf'
 
     @staticmethod
     def download_pdf_by_requests(pdf_url, target_path, save_name):
@@ -126,23 +138,5 @@ class DoiLogger(Logger):
 
         return
 
-    def download_doi(self, doi_number, save_name, target_path='./'):
-        #get journal official page content
-        print "Getting page content..."
-        form_data_dict = {'hdl': str(doi_number)}
-        page_content = self.send_post(self.url_login, form_data_dict)
-        if page_content:
-            print "Ok."
-        else:
-            raise ValueError('No Content.')
-        #get pdf link
-        print "Extract file url..."
-        pdf_url = self.get_pdf_url(page_content)
-        print 'url: ' + str(pdf_url)
-        print 'Ok.'
-        #download pdf
-        print "Downloading..."
-        self.download_pdf(pdf_url, target_path, save_name)
-        print "Download complete!"
-
-        return
+    def download_doi(self, doi_number, target_path='./'):
+        
