@@ -81,7 +81,8 @@ else:
     save_name = database_name + '.pdf'
     target_path = './'
 
-    print "Downloading %s...\n" % save_name
-    print "Download time depends on the size of file."
+    print "Downloading %s..." % save_name
+    print "(Download time depends on the size of file)"
+    print "Please wait..."
     download_method(pdf_url, target_path, save_name)
     print 'Ok. Complete!\nGo and check your file!'
