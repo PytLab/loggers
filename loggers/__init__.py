@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 #standard dependencies
-import urllib,urllib2,cookielib
+import urllib
+import urllib2
+import cookielib
 import subprocess
 import time
 import os
@@ -9,5 +11,4 @@ import re
 from BeautifulSoup import BeautifulSoup
 from logger_base import *
 
-__version__ = '0.2.0'
-
+__version__ = '0.3.0'

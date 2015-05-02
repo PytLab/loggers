@@ -9,7 +9,7 @@ maintainer = 'ShaoZhengjiang'
 maintainer_email = 'shaozhengjiang@gmail.com'
 author = maintainer
 author_email = maintainer_email
-long_description = file('README.txt').read()
+long_description = file('README.md').read()
 name='python-loggers'
 packages = [
            'loggers',
