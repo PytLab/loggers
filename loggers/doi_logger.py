@@ -63,6 +63,19 @@ class DoiLogger(Logger):
 
         return quasi_url  # please use download_pdf_by_urllib()
 
+    #Nature
+    @staticmethod
+    def get_Nature_pdf_url(page_content):
+        home_url = 'http://www.nature.com'
+        #create BS object
+        soup = BeautifulSoup(page_content)
+        #get pdf link
+        url_list = soup.find_all('a', id='download-pdf')
+        partial_pdf_url = url_list[0].attrs['href']
+        pdf_url = home_url + partial_pdf_url
+
+        return pdf_url
+
     @staticmethod
     def download_pdf_by_requests(pdf_url, target_path, save_name):
         req = requests.get(pdf_url)
