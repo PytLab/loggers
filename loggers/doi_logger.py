@@ -3,6 +3,16 @@ from logger_base import *
 from bs4 import BeautifulSoup
 import requests
 
+'''
+Support:
+        ACS
+        Elsevier
+        Wiley
+        Springer
+        Nature
+        RSC
+'''
+
 
 class DoiLogger(Logger):
     def __init__(self, need_data_file=False):
@@ -71,6 +81,20 @@ class DoiLogger(Logger):
         soup = BeautifulSoup(page_content)
         #get pdf link
         url_list = soup.find_all('a', id='download-pdf')
+        partial_pdf_url = url_list[0].attrs['href']
+        pdf_url = home_url + partial_pdf_url
+
+        return pdf_url
+
+    #RSC
+    @staticmethod
+    def get_RSC_pdf_url(page_content):
+        home_url = 'http://pubs.rsc.org'
+        #create BS object
+        soup = BeautifulSoup(page_content)
+        #get pdf link
+        url_list = soup.find_all(
+            'a', class_='gray_bg_normal_txt', title='PDF')
         partial_pdf_url = url_list[0].attrs['href']
         pdf_url = home_url + partial_pdf_url
 
