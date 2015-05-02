@@ -102,7 +102,7 @@ class Logger(object):
         handler = urllib2.HTTPCookieProcessor(cookie)  # create cookie processor
         opener = urllib2.build_opener(handler)  # a general opener
         #return response page content
-        response = opener.open(req, timeout=10)
+        response = opener.open(req, timeout=100)
         page = response.read()
 
         return page
