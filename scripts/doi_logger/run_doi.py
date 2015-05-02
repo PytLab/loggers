@@ -82,5 +82,6 @@ else:
     target_path = './'
 
     print "Downloading %s...\n" % save_name
+    print "Download time depends on the size of file."
     download_method(pdf_url, target_path, save_name)
-    print 'Ok. Go and check your file!'
+    print 'Ok. Complete!\nGo and check your file!'
