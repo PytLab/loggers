@@ -2,6 +2,7 @@
 from logger_base import *
 from bs4 import BeautifulSoup
 import requests
+import threading
 
 '''
 Support:
@@ -19,6 +20,17 @@ class DoiLogger(Logger):
         url = 'http://dx.doi.org/'
         Logger.__init__(self, url=url, need_data_file=False)
         self.log_file = 'doi.log'
+
+        self.database_dict = {
+
+            'ACS'      : 'ACS.pdf',
+            'Elsevier' : 'Elsevier.pdf',
+            'Wiley'    : 'Wiley.pdf',
+            'Springer' : 'Springer.pdf',
+            'Nature'   : 'Nature.pdf',
+            'RSC'      : 'RSC.pdf',
+
+        }
 
     #Elsevier
     @staticmethod
@@ -47,7 +59,7 @@ class DoiLogger(Logger):
         partial_pdf_url = url_list[0].attrs['href']
         pdf_url = home_url + partial_pdf_url
 
-        return pdf_url, 'ACS.pdf'
+        return pdf_url
 
     #Wiley
     @staticmethod
@@ -63,7 +75,7 @@ class DoiLogger(Logger):
             return
         pdf_url = url_list[0].attrs['src']
 
-        return pdf_url, 'Wiley.pdf'
+        return pdf_url
 
     #Springer
     @staticmethod
@@ -79,7 +91,7 @@ class DoiLogger(Logger):
         partial_pdf_url = url_list[0].attrs['href']
         quasi_url = pdf_url_head + partial_pdf_url
 
-        return quasi_url, 'Springer.pdf'  # please use download_pdf_by_urllib()
+        return quasi_url  # please use download_pdf_by_urllib()
 
     #Nature
     @staticmethod
@@ -94,7 +106,7 @@ class DoiLogger(Logger):
         partial_pdf_url = url_list[0].attrs['href']
         pdf_url = home_url + partial_pdf_url
 
-        return pdf_url, 'Nature.pdf'
+        return pdf_url
 
     #RSC
     @staticmethod
@@ -110,7 +122,7 @@ class DoiLogger(Logger):
         partial_pdf_url = url_list[0].attrs['href']
         pdf_url = home_url + partial_pdf_url
 
-        return pdf_url, 'RSC.pdf'
+        return pdf_url
 
     @staticmethod
     def download_pdf_by_requests(pdf_url, target_path, save_name):
@@ -137,6 +149,3 @@ class DoiLogger(Logger):
             f.write(content)
 
         return
-
-    def download_doi(self, doi_number, target_path='./'):
-        
