@@ -1,5 +1,5 @@
 # loggers #
-##A Python library for automatic logging in some websites with other functions##
+##A Python library for automatic logging in some websites with some practical functions##
 
 ####Author: ####
   PytLab **<shaozhengjiang@gmail.com>**
@@ -11,7 +11,7 @@
 
   - You will need to ensure that you are running python 2.x 
   (2.7.x or greater) on your devices.[**python2.7.6**](https://www.python.org/download/releases/2.7.6/)
-  - If you use doi_logger, you will alse need to install [**Beautiful Soup**](http://www.crummy.com/software/BeautifulSoup/).
+  - If you use `doi_logger.py`, you will also need to install [**Beautiful Soup**](http://www.crummy.com/software/BeautifulSoup/).
 
 ####Latest update info:####
 #####Version 0.3.0:#####
@@ -70,7 +70,7 @@ e.g. 'C:\Python27\Lib\site-packages' on Windows
 ###Easy use:###
 ---------------
 
-###  doi_logger: ###
+####  doi_logger: ####
 
 I've provide a simple python script `/script/doi_logger/run_doi.py` to download literature from database.
 
@@ -81,7 +81,7 @@ e.g. in powershell, cmd or linux shell, you want to download paper whose DOI is 
 
 then the corresponding pdf file will appear in current path.
 
-###  ecust_logger:  ###
+####  ecust_logger:  ####
 
 I've provided a simple batch script 'run.bat' for you to run the 
 'run_ecust.py' to log in ECUST Campus Network automatically.
@@ -107,7 +107,7 @@ Campus Network with your 4M accounts.
 5. Double tap 'stop.bat' to stop the script process.
 
 
-###  emuch_logger(小木虫貌似添加了访问次数限制，目前这部分会报错，后面有空会添加Proxy): ###
+####  emuch_logger(小木虫貌似添加了访问次数限制，目前这部分会报错，后面有空会添加Proxy): ####
 
 This is a logger for automatic logging in emuch.net, 
 and provide credit getting function and file downloading function.
