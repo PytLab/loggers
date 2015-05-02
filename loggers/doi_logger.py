@@ -23,18 +23,18 @@ class DoiLogger(Logger):
 
         self.database_dict = {
 
-            'ACS'      : 'ACS.pdf',
-            'Elsevier' : 'Elsevier.pdf',
-            'Wiley'    : 'Wiley.pdf',
-            'Springer' : 'Springer.pdf',
-            'Nature'   : 'Nature.pdf',
-            'RSC'      : 'RSC.pdf',
+            'ACS'      : self.get_ACS_pdf_url,
+            'Elsevier' : self.get_Elsevier_pdf_url,
+            'Wiley'    : self.get_Wiley_pdf_url,
+            'Springer' : self.get_Springer_pdf_url,
+            'Nature'   : self.get_Nature_pdf_url,
+            'RSC'      : self.get_RSC_pdf_url,
 
         }
 
     #Elsevier
     @staticmethod
-    def get_ScienceDirect_pdf_url(page_content):
+    def get_Elsevier_pdf_url(page_content):
         #create BS object
         soup = BeautifulSoup(page_content)
         #get pdf link
