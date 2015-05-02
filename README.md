@@ -79,7 +79,8 @@ e.g. in powershell, cmd or linux shell, you want to download paper whose DOI is 
     cd your_path/loggers/scripts/doi_logger/
     python run_doi.py 10.1016/j.apcatb.2014.11.043
 
-then the corresponding pdf file will appear in current path.
+wait for a few minutes,
+then the corresponding `.PDF` file will appear in current path.
 
 ####  ecust_logger:  ####
 
