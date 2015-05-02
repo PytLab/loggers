@@ -1,66 +1,41 @@
-# loggers
+# loggers #
 ##A Python library for automatic logging in some websites with other functions##
-==================================================================
+
 ####Author: ####
-  PytLab <shaozhengjiang@gmail.com>
+  PytLab **<shaozhengjiang@gmail.com>**
 
 ####Version: ####
-  0.2.3
+  0.3.0
 
-==================================================================
 ####Requirements:####
 
-  You will need to ensure that you are running python 2.x 
-  (2.7.x or greater) on your devices.[python2.7.6](https://www.python.org/download/releases/2.7.6/)
-	
-==================================================================
-####Update info:####
+  - You will need to ensure that you are running python 2.x 
+  (2.7.x or greater) on your devices.[**python2.7.6**](https://www.python.org/download/releases/2.7.6/)
+  - If you use doi_logger, you will alse need to install [**Beautiful Soup**](http://www.crummy.com/software/BeautifulSoup/).
 
-update version 0.2.3:
+####Latest update info:####
+#####Version 0.3.0:#####
 
-  * Show feedback information on command window.
+Add `DoiLogger()` class which provide methods to download paper according to DOI number you provide.
 
-update version 0.2.2:
+e.g. DOI: 10.1007/s10562-013-1133-0.
 
-  * fix some bugs in checking internet connection.
+最新添加了根据DOI号直接下载相应文献的功能。
 
-update version 0.2.1:
+例如DOI：10.1007/s10562-013-1133-0 自动下载相应文献到当前目录。
 
-  * Continue to login when there is no internet connection or no wlan account logged in.
+Database supported(目前支持的数据库):
   
-update version 0.2.0:
+  - [ACS](http://pubs.acs.org/)
+  - [Elsevier ScienceDirect](http://www.sciencedirect.com/)
+  - [Wiley](http://onlinelibrary.wiley.com/)
+  - [Springer](http://link.springer.com/)
+  - [Nature](http://www.nature.com/nature/index.html)
+  - [RSC](http://www.rsc.org/)
 
-  * Add new script to download files during 00:00 ~ 7:00
-  * without costing any credit!
-  
-update version 0.1.5:
+###If you don't use it as a library, ignore this part, go to 'Easy use' below###
 
-  * fix bugs in display of credit number.
-  
-update version 0.1.4:
-
-  * check internet connection in script 'run_emuch.py'
-  * show credit number
-  
-update version 0.1.3:
-
-  * Fix some bugs.
-  
-update version 0.1.2:
-
-  * remove the application of nonstandard lib -->"BeautifulSoup"
- 
-update version 0.1.1:
-
-  * show user's coin number in log file.
-  
-update version 0.1.0 : 
-
-  * add EmuchLogger class to log in 'emuch.net' automatically
-  * add method of EmuchLogger to get credit automatically
-	
-==================================================================
-**if you don't use it as a library, ignore this part**
+----------
 
 #####Quick Installation:(in cmd, bash, poweshell)#####
 To install, unpack the loggers archive and run
@@ -92,8 +67,19 @@ You can alse place 'loggers' into your PYTHONPATH,
 e.g. 'C:\Python27\Lib\site-packages' on Windows
 '/usr/local/lib/python2.7/site-packages/' on Linux
 
-===================================================================================
-##Easy use:##
+###Easy use:###
+---------------
+
+###  doi_logger: ###
+
+I've provide a simple python script `/script/doi_logger/run_doi.py` to download literature from database.
+
+e.g. in powershell, cmd or linux shell, you want to download paper whose DOI is 10.1016/j.apcatb.2014.11.043:
+   
+    cd your_path/loggers/scripts/doi_logger/
+    python run_doi.py 10.1016/j.apcatb.2014.11.043
+
+then the corresponding pdf file will appear in current path.
 
 ###  ecust_logger:  ###
 
@@ -121,7 +107,7 @@ Campus Network with your 4M accounts.
 5. Double tap 'stop.bat' to stop the script process.
 
 
-###  emuch_logger: ###
+###  emuch_logger(小木虫貌似添加了访问次数限制，目前这部分会报错，后面有空会添加Proxy): ###
 
 This is a logger for automatic logging in emuch.net, 
 and provide credit getting function and file downloading function.
@@ -129,7 +115,7 @@ and provide credit getting function and file downloading function.
 I've provided a simple script 'run_credit.py' to log in and get today's credit
 automatically and  'run_downloader.py' to download file freely at midnight.
 
-####To get credit automatically:####
+- ####To get credit automatically:####
  1. Input your log infomation:
     open loggers/emuch_logger/formdata.txt with any editor,<br>
     change the infomation according your own need, <br>
@@ -144,14 +130,13 @@ automatically and  'run_downloader.py' to download file freely at midnight.
 
  4. All infomation are written in 'emuch.log'.
 
-####To get download file for free at midnight:####
+- ####To get download file for free at midnight:####
 
  1. Put urls of downoad pages into 'download_list.txt'
 
  2. Then just double tap 'run_downloader.bat' or 'run_downloader.py' before 00:00
 
- 3. The script will download for you automatically. Check files in the './emuch_download/'the next day,<br>
-    because some files may be corrupted(´-ι_-｀)
+ 3. The script will download for you automatically. Check files in the './emuch_download/' the next day, because some files may be corrupted(´-ι_-｀)
 
  4. Download informations are displayed in command windows, log informations are recorded in 'emuch.log'.
 	  
