@@ -24,7 +24,7 @@ e.g. DOI: 10.1007/s10562-013-1133-0.
 
 例如DOI：10.1007/s10562-013-1133-0 自动下载相应文献到当前目录。
 
-Database supported(目前支持的数据库):
+Database supported (目前支持的数据库):
   
   - [ACS](http://pubs.acs.org/)
   - [Elsevier ScienceDirect](http://www.sciencedirect.com/)
@@ -69,6 +69,13 @@ e.g. 'C:\Python27\Lib\site-packages' on Windows
 
 ###Easy use:###
 ---------------
+下面的脚本均可**免安装直接运行**，运行方法：
+
+用编辑器打开`run_credit.py`, `run_downloader.py`, `run_ecust.py`, `run_doi.py`，然后分别将脚本第二行
+
+    sys.path.append('D:\Dropbox\Code\Python\loggers')
+
+中的路径(`D:\Dropbox\Code\Python\loggers`)改成你下载loggers的目标路径，然后执行即可。
 
 ####  doi_logger: ####
 
@@ -76,8 +83,8 @@ I've provide a simple python script `/script/doi_logger/run_doi.py` to download 
 
 e.g. in powershell, cmd or linux shell, you want to download paper whose DOI is 10.1016/j.apcatb.2014.11.043:
    
-    cd your_path/loggers/scripts/doi_logger/
-    python run_doi.py 10.1016/j.apcatb.2014.11.043
+    $ cd your_path/loggers/scripts/doi_logger/
+    $ python run_doi.py 10.1016/j.apcatb.2014.11.043
 
 wait for a few minutes,
 then the corresponding `.PDF` file will appear in current path.
@@ -108,7 +115,7 @@ Campus Network with your 4M accounts.
 5. Double tap 'stop.bat' to stop the script process.
 
 
-####  emuch_logger(小木虫貌似添加了访问次数限制，目前这部分会报错，后面有空会添加Proxy): ####
+####  emuch_logger(后面有空会添加Proxy): ####
 
 This is a logger for automatic logging in emuch.net, 
 and provide credit getting function and file downloading function.
