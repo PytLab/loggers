@@ -18,11 +18,11 @@
 
 Add `DoiLogger()` class which provide methods to download paper according to DOI number you provide.
 
-e.g. DOI: 10.1007/s10562-013-1133-0.
+e.g. `DOI: 10.1007/s10562-013-1133-0`.
 
 最新添加了根据DOI号直接下载相应文献的功能。
 
-例如DOI：10.1007/s10562-013-1133-0 自动下载相应文献到当前目录。
+例如 `DOI: 10.1007/s10562-013-1133-0` 自动下载相应文献到当前目录。
 
 Database supported (目前支持的数据库):
   
@@ -62,7 +62,7 @@ or in python shell:
 	
     >>> import sys
     >>> sys.path.append(THIS_FOLDER_PATH)
-You can alse place 'loggers' into your PYTHONPATH, 
+You can also place 'loggers' into your PYTHONPATH, 
 	
 e.g. 'C:\Python27\Lib\site-packages' on Windows
 '/usr/local/lib/python2.7/site-packages/' on Linux
@@ -97,9 +97,9 @@ I've provided a simple batch script 'run.bat' for you to run the
 Note: this script provide only automatic wired connection to 
 Campus Network with your 4M accounts.
 
-1. Input your log infomation:
+1. Input your log information:
    open loggers/ecust_logger/formdata.txt with any editor,
-   change the infomation according your own need, 
+   change the information according your own need, 
    e.g. username, password ...
 
 2. If you want to run this script with your computer booting,
@@ -124,7 +124,7 @@ I've provided a simple script 'run_credit.py' to log in and get today's credit
 automatically and  'run_downloader.py' to download file freely at midnight.
 
 - ####To get credit automatically:####
- 1. Input your log infomation:
+ 1. Input your log information:
     open loggers/script/emuch_logger/formdata.txt with any editor,<br>
     change the infomation according your own need, <br>
     e.g. username, password ...
@@ -136,11 +136,11 @@ automatically and  'run_downloader.py' to download file freely at midnight.
  3. If you want to run it manually, just double tap the 'run_credit.bat' <br>
    or 'run_emuch.py'.
 
- 4. All infomation are written in 'emuch.log'.
+ 4. All information are written in 'emuch.log'.
 
 - ####To get download file for free at midnight:####
 
- 1. Put urls of downoad pages into 'download_list.txt'
+ 1. Put urls of download pages into 'download_list.txt'
 
  2. Then just double tap 'run_downloader.bat' or 'run_downloader.py' before 00:00
 
