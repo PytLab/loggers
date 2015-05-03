@@ -11,7 +11,7 @@
 
   - You will need to ensure that you are running python 2.x 
   (2.7.x or greater) on your devices.[**python2.7.6**](https://www.python.org/download/releases/2.7.6/)
-  - If you use `doi_logger.py`, you will also need to install [**Beautiful Soup**](http://www.crummy.com/software/BeautifulSoup/).
+  - If you use `DoiLogger` class, you will also need to install [**Beautiful Soup**](http://www.crummy.com/software/BeautifulSoup/).
 
 ####Latest update info:####
 #####Version 0.3.0:#####
