@@ -125,7 +125,7 @@ automatically and  'run_downloader.py' to download file freely at midnight.
 
 - ####To get credit automatically:####
  1. Input your log infomation:
-    open loggers/emuch_logger/formdata.txt with any editor,<br>
+    open loggers/script/emuch_logger/formdata.txt with any editor,<br>
     change the infomation according your own need, <br>
     e.g. username, password ...
 
