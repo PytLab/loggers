@@ -20,7 +20,7 @@ Add `DoiLogger()` class which provide methods to download paper according to DOI
 
 e.g. `DOI: 10.1007/s10562-013-1133-0`.
 
-最新添加了根据DOI号直接下载相应文献的功能。
+最新添加了根据DOI号直接下载相应数据库文献的功能。
 
 例如 `DOI: 10.1007/s10562-013-1133-0` 自动下载相应文献到当前目录。
 
@@ -76,6 +76,8 @@ e.g. 'C:\Python27\Lib\site-packages' on Windows
     sys.path.append('D:\Dropbox\Code\Python\loggers')
 
 中的路径(`D:\Dropbox\Code\Python\loggers`)改成你下载loggers的目标路径，然后执行即可。
+
+若已经安装，需此行注释掉然后执行即可。
 
 ####  doi_logger: ####
 
