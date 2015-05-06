@@ -73,9 +73,9 @@ e.g. 'C:\Python27\Lib\site-packages' on Windows
 
 用编辑器打开`run_credit.py`, `run_downloader.py`, `run_ecust.py`, `run_doi.py`，然后分别将脚本第二行
 
-    sys.path.append('D:\Dropbox\Code\Python\loggers')
+    sys.path.append('your_path')
 
-中的路径(`D:\Dropbox\Code\Python\loggers`)改成你下载loggers的目标路径，然后执行即可。
+中的路径(`your_path`)改成你下载loggers的目标路径，然后执行即可。
 
 若已经安装，需此行注释掉然后执行即可。
 
