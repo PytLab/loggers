@@ -64,8 +64,8 @@ or in python shell:
     >>> sys.path.append(THIS_FOLDER_PATH)
 You can also place 'loggers' into your PYTHONPATH, 
 	
-e.g. 'C:\Python27\Lib\site-packages' on Windows
-'/usr/local/lib/python2.7/site-packages/' on Linux
+e.g. `C:\Python27\Lib\site-packages` on Windows or 
+`/usr/local/lib/python2.7/site-packages/` on Linux
 
 ###Easy use:###
 ---------------
