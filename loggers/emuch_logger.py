@@ -162,7 +162,7 @@ class EmuchLogger(Logger):
 
         if self.get_hash_code('formhash', response_1):
             formhash = self.get_hash_code('formhash', response_1)[1]
-            credit_form_data = {'getmode': '1', 'creditsubmit': '领取红包'}
+            credit_form_data = {'getmode': '2', 'creditsubmit': '领取红包'}
             credit_form_data['formhash'] = formhash
             setattr(self, 'credit_form_data', credit_form_data)
 
