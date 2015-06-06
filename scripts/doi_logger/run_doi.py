@@ -69,6 +69,8 @@ else:
             pdf_url = url
             database_name = name
 
+    if not database_name:
+        raise ValueError("Unspported database.")
     #download pdf
     #choose download method
     if database_name == 'Springer':
