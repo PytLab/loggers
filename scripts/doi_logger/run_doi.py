@@ -86,5 +86,10 @@ else:
     print "Downloading %s..." % save_name
     print "Download time depends on the size of file."
     print "Please wait..."
-    download_method(pdf_url, target_path, save_name)
+    try:
+        download_method(pdf_url, target_path, save_name)
+    except:
+        print "\nOops! A exception was detected."
+        print "Maybe the PDF file dosen't exist."
+        sys.exit()
     print 'Ok. Complete!\nGo and check your file!'
