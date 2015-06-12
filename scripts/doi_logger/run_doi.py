@@ -1,7 +1,8 @@
 import sys
+import threading
+
 sys.path.append('D:\Dropbox\Code\Python\loggers')
 from loggers.doi_logger import *
-import threading
 
 
 class GetPdfUrlThread(threading.Thread):
