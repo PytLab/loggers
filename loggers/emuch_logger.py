@@ -25,7 +25,7 @@ class EmuchLogger(Logger):
 			}
 
         self.form_data_dict = self.load_form_data(filename='formdata.txt')
-        self.credit_url = 'http://emuch.net/bbs/memcp.php?action=getcredit'
+        self.credit_url = 'http://muchong.com/bbs/memcp.php?action=getcredit'
         self.log_file = './emuch.log'
 
 #	def log(self, event, **kwargs):
@@ -92,20 +92,21 @@ class EmuchLogger(Logger):
         return cookie tuple.
         """
         num1, num2, operation = 0, 0, ''
-        qustion_regex = r'(\xce\xca\xcc\xe2\xa3\xba)(\d+)(.+)(\d+)' +\
-            r'(\xb5\xc8\xd3\xda\xb6\xe0\xc9\xd9?)'
+        operator_regex = r"([\x00-\xff]+)"
+        question_regex = (r"(\xce\xca\xcc\xe2\xa3\xba)(\d+)" + operator_regex +
+                          r"(\d+)(\xb5\xc8\xd3\xda\xb6\xe0\xc9\xd9?)")
 
         while not (num1 and num2 and operation):
             print "Sending form data to log in...\n"
             response = self.post_with_cookie()[0]
             print "Abstracting verify information..."
-            match_obj = re.search(qustion_regex, response)
+            match_obj = re.search(question_regex, response)
             if match_obj:
                 print "OK."
             #get question parts
             try:
-                num1, num2, operation = match_obj.group(2), match_obj.group(4),\
-                    match_obj.group(3)
+                num1, num2 = match_obj.group(2), match_obj.group(4)
+                operation = match_obj.group(3)
                 #return num1, num2, operation
                 print "Question is %s %s %s\n" % (num1, operation, num2)
             except:
@@ -113,15 +114,24 @@ class EmuchLogger(Logger):
                 #time.sleep(6)
                 pass
 
-        #further log in
-        #calculate verify question
-        #division
+        # Further log in.
+        # Calculate verify question.
+
+        # Division.
         print "Answering the question..."
         if operation == '\xb3\xfd\xd2\xd4':
             answer = str(int(num1) / int(num2))
         #multiplication
-        if operation == '\xb3\xcb\xd2\xd4':
+        elif operation == '\xb3\xcb\xd2\xd4':
             answer = str(int(num1) * int(num2))
+        # Substraction.
+        elif operation == "\xbc\xf5":
+            answer = str(int(num1) - int(num2))
+        # Addition.
+        elif operation == "\xbc\xd3":
+            answer = str(int(num1) + int(num2))
+        else:
+            raise ValueError("Unknown operator {}".format(operation))
 
         print "OK. The answer is %s\n" % (answer)
 
@@ -180,8 +190,8 @@ class EmuchLogger(Logger):
             return response_2
         else:
             print "Abstracting credit number..."
-            credit_num = self.get_credit_number(
-                self.send_post(self.credit_url, self.form_data_dict))
+            credit_num = self.get_credit_number(self.send_post(self.credit_url,
+                                                               self.form_data_dict))
             self.log(event='get_credit_fail', credit_num=credit_num)
             print "OK.\n"
             return 'have_got', credit_num
@@ -193,6 +203,8 @@ class EmuchLogger(Logger):
         regex_int = r'(<u>\xbd\xf0\xb1\xd2: )(\d*)(</u>)'
         m_float = re.search(regex_float, response)
         m_int = re.search(regex_int, response)
+        import pdb
+        pdb.set_trace()
         if m_float:
             credit_num_str = m_float.group(2)
         if m_int:
@@ -219,7 +231,7 @@ class EmuchLogger(Logger):
         regex = r'(<a href=")(attachment.php\?tid=\d+&aid=\d+&pay=yes)(">)'
         m = re.search(regex, resp)
         if m:
-            second_url = 'http://emuch.net/bbs/' + m.group(2)
+            second_url = 'http://muchong.com/bbs/' + m.group(2)
             return second_url
         else:
             return
