@@ -203,8 +203,6 @@ class EmuchLogger(Logger):
         regex_int = r'(<u>\xbd\xf0\xb1\xd2: )(\d*)(</u>)'
         m_float = re.search(regex_float, response)
         m_int = re.search(regex_int, response)
-        import pdb
-        pdb.set_trace()
         if m_float:
             credit_num_str = m_float.group(2)
         if m_int:
